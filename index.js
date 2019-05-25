@@ -1,7 +1,5 @@
 'use strict';
 
-const url = require('url');
-const log = require('debug')(require('./package.json').name);
 const performYrNoApiRequest = require('./lib/api-request');
 const endpoints = require('./lib/endpoints');
 
@@ -44,15 +42,9 @@ module.exports = (config) => {
         } else {
 
           // console.log('xxx', url.resolve(HOST, `${PATH}/${fn}/${params.version}`))
-          const requestOpts = Object.assign({}, config.request, params.request, {
-            url: url.resolve(HOST, `${PATH}/${fn}/${params.version}`),
-            qs: params.query
-          });
-
-          log('performing "%s" with request params %j', fn, requestOpts);
-
-          // just in case someone supplied it in config.request...
-          delete requestOpts.uri;
+          const requestOpts = {
+            url: HOST + PATH + "/" + fn + "/1.9/?" + params.query
+          }
 
           return performYrNoApiRequest(requestOpts, callback);
         }
