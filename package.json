@@ -24,8 +24,7 @@
     "api.met.no",
     "forecast"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "bluebird": "~3.5.0",
     "chai": "~3.5.0",

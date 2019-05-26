@@ -13,8 +13,6 @@ const PATH = '/weatherapi';
  * @return {Object}
  */
 module.exports = (config) => {
-  log('creating yr.no-interface with config', config);
-
   config = Object.assign({
     request: {
       timeout: 60000
@@ -42,10 +40,10 @@ module.exports = (config) => {
         } else {
 
           // console.log('xxx', url.resolve(HOST, `${PATH}/${fn}/${params.version}`))
+          const query = Object.entries(params.query).map(e => e.join('=')).join('&');
           const requestOpts = {
-            url: HOST + PATH + "/" + fn + "/1.9/?" + params.query
-          }
-
+            url: HOST + PATH + '/' + fn + '/1.9?' + query
+          };
           return performYrNoApiRequest(requestOpts, callback);
         }
       };

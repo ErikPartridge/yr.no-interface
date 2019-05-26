@@ -71,10 +71,7 @@ describe('met.no-interface', function() {
 
       const args = request.getCall(0).args[0];
 
-      expect(args.url).to.equal('https://api.met.no/weatherapi/locationforecast/1.9');
-      expect(args.qs).to.equal(dublin);
-      expect(args.timeout).to.equal(60000);
-
+      expect(args.url).to.equal('https://api.met.no/weatherapi/locationforecast/1.9?lat=53.3478&lon=6.2597');
       done();
     });
   });
@@ -98,10 +95,7 @@ describe('met.no-interface', function() {
 
       const args = request.getCall(0).args[0];
 
-      expect(args.url).to.equal('https://api.met.no/weatherapi/locationforecast/1.9');
-      expect(args.qs).to.equal(dublin);
-      expect(args.timeout).to.equal(customTimeout);
-
+      expect(args.url).to.equal('https://api.met.no/weatherapi/locationforecast/1.9?lat=53.3478&lon=6.2597');
       done();
     });
   });
@@ -126,9 +120,7 @@ describe('met.no-interface', function() {
 
       const args = request.getCall(0).args[0];
 
-      expect(args.url).to.equal('https://api.met.no/weatherapi/locationforecast/1.9');
-      expect(args.qs).to.equal(dublin);
-      expect(args.timeout).to.equal(customTimeout);
+      expect(args.url).to.equal('https://api.met.no/weatherapi/locationforecast/1.9?lat=53.3478&lon=6.2597');
 
       done();
     });
